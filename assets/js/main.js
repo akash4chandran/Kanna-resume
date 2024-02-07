@@ -1,10 +1,4 @@
-/**
-* Template Name: MyResume
-* Updated: Jan 29 2024 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 (function() {
   "use strict";
 
@@ -295,6 +289,10 @@ submitBtn.addEventListener("click",()=>{
         .then(response => {
           if( response.ok ) {
             document.getElementById('loader').style.display='none'
+            fname.value=''
+            email.value=''
+            message.value=''
+            subject.value=''
             thisForm.querySelector('.loading').classList.remove('d-block');
             return response.text();
           } else {
@@ -305,6 +303,10 @@ submitBtn.addEventListener("click",()=>{
           thisForm.querySelector('.loading').classList.remove('d-block');
           if (data.trim() == 'OK') {
             document.getElementById('loader').style.display='none'
+            fname.value=''
+            email.value=''
+            message.value=''
+            subject.value=''
             thisForm.querySelector('.sent-message').classList.add('d-block');
             thisForm.reset(); 
           } else {
@@ -312,7 +314,7 @@ submitBtn.addEventListener("click",()=>{
           }
         })
         .catch((error) => {
-          console.log(error,"err");
+
          document.getElementById('loader').style.display='none'
           
           displayError(thisForm, error);
